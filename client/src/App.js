@@ -3,6 +3,7 @@ import Header from './Header';
 import Route from './router/Route';
 import ToDoList from './toDoList/toDoList';
 import Metube from './metuve/Metuve';
+import PicsApp from './picsApp/picsApp';
 
 export default () => {
   return (
@@ -13,6 +14,9 @@ export default () => {
       </Route>
       <Route path="/metube">
         <Metube/>
+      </Route>
+      <Route path="/pictures">
+        <PicsApp/>
       </Route>
     </div>
   )

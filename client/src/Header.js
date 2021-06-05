@@ -10,11 +10,8 @@ const Header = () => {
       <Link href="/metube" className="item">
         metube
       </Link>
-      <Link href="/dropdown" className="item">
-        Dropdown
-      </Link>
-      <Link href="/translate" className="item">
-        Translate
+      <Link href="/pictures" className="item">
+        Pictures
       </Link>
     </div>
   );
