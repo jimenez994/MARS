@@ -28,14 +28,16 @@ class PicsApp extends React.Component {
   
   // using axios 
   onFormSubmit = async (search) => {
+    if (search === "") {
+      search = "happy girl"
+    }
     // opt 1 --------axios refactor in api folder
     const response = await unsplash.get('/search/photos', {
       params: { query: search, per_page: 25 }
     })
     this.setState({ images: response.data.results })
-
-
   }
+
   render() {
     
     return (
