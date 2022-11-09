@@ -1,0 +1,22 @@
+.containerC {
+  background-color: rgb(186, 186, 186);
+  text-align: center;
+  height: 100%;
+}
+
+.calculator {
+  background-color: white;
+  height: 100%;
+  width: 50%;
+  margin:auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.output{
+  grid-column: 2/3;
+  grid-row: 1;
+  background-color:orange
+}

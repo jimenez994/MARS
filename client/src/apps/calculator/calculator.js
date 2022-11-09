@@ -1,11 +1,16 @@
-import React from 'react'
-
+import React from "react";
+import './style.css'
 const Calculator = () => {
   return (
-    <div>
-      <h2>Calculator</h2>
+    <div className="containerC">
+      <div>
+        <h2>Calculator</h2>
+        <div className="calculator">
+          <div className="output">0</div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Calculator;
