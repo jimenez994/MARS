@@ -1,15 +1,17 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import Header from './Header';
 import Route from './router/Route';
-import ToDoList from './toDoList/toDoList';
-import Metube from './metuve/Metuve';
-import PicsApp from './picsApp/picsApp';
+import ToDoList from './apps/toDoList/toDoList';
+import Metube from './apps/metuve/Metuve';
+import PicsApp from './apps/picsApp/picsApp';
+import Calculator from './apps/calculator/calculator'
 
 export default () => {
   return (
     <div>
-      <Header />
-      <Route path="/">
+      <Header /> 
+      <Route path="/"> 
         <ToDoList/>
       </Route>
       <Route path="/metube">
@@ -17,6 +19,9 @@ export default () => {
       </Route>
       <Route path="/pictures">
         <PicsApp/>
+      </Route>
+      <Route path="/calculator">
+        <Calculator/>
       </Route>
     </div>
   )

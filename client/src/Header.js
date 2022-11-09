@@ -13,6 +13,9 @@ const Header = () => {
       <Link href="/pictures" className="item">
         Pictures
       </Link>
+      <Link href="/calculator" className="item">
+        Calculator
+      </Link>
     </div>
   );
 };

@@ -12,6 +12,7 @@ const VideoDetail = (props) => {
 
   const videoSrc = `https://www.youtube.com/embed/${props.selectedVideo.id.videoId}`
   return (
+    
     <div >
       <div className="ui embed">
         <iframe src={videoSrc} title={props.selectedVideo.snippet.title }/>
