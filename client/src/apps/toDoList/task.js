@@ -6,6 +6,7 @@ class Task extends React.Component {
   state = {
     show: false,
     toggleOpt: false,
+    crossedOut: false, // New state to keep track of cross-out status
   };
 
   showEdit = () => {
@@ -14,7 +15,15 @@ class Task extends React.Component {
     }));
   };
 
+  onCrossOut = () => {
+    this.setState((prevState) => ({
+      crossedOut: !prevState.crossedOut,
+    }));
+  };
+
   render() {
+    const { crossedOut } = this.state;
+
     let editForm;
     let deleteButton;
     if (this.state.show) {
@@ -32,8 +41,10 @@ class Task extends React.Component {
       );
     } else {
       editForm = (
-        <Button style={{ textTransform: "unset" }}>
-          <Typography variant="h5">{this.props.taskObj.task} </Typography>
+        <Button onClick={this.onCrossOut} style={{ textTransform: "unset" }}>
+          <Typography variant="h5" style={{ textDecoration: crossedOut ? "line-through" : "none" }}>
+            {this.props.taskObj.task}
+          </Typography>
         </Button>
       );
     }
