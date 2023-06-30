@@ -10,43 +10,36 @@ const Content = (props) => {
   const imageRefs = useRef([]);
 
   useEffect(() => {
-    setImages(props.data)
     // Initialize the array of refs
-    imageRefs.current = Array(props.data.length)
+    imageRefs.current = Array(images.length)
       .fill()
       .map((_, i) => imageRefs.current[i] || React.createRef());
-  }, [props.data]);
+  }, [images]);
 
   const getColumnHeights = () => {
-    const heights = imageRefs.current.map((ref) => {
-      if (ref.current) {
-        const containerHeight = ref.current.offsetHeight;
-        const imageHeight = ref.current.querySelector('.image').offsetHeight;
-        return Math.max(containerHeight, imageHeight);
-      }
-      return 0;
-    });
+    const heights = imageRefs.current.map((ref) => ref.current.offsetHeight);
     return heights;
   };
-  
-  
 
   const renderImages = () => {
     const columnCount = 4;
     const columns = Array.from({ length: columnCount }, () => []);
-  
+
     images.forEach((image, index) => {
-      const columnIndex = index % columnCount;
+      const columnHeights = getColumnHeights(columns);
+      const maxColumnHeight = Math.max(...columnHeights);
+      const columnIndex = columnHeights.indexOf(maxColumnHeight);
+
       columns[columnIndex].push(image);
     });
-  
+
     return columns.map((column, index) => (
       <div key={index} className="column">
-        {column.map((image) => (
+        {column.map((image, idx) => (
           <div
             key={image.id}
             id={`image-container-${image.id}`}
-            ref={imageRefs.current.find((ref) => ref.current?.id === `image-container-${image.id}`)}
+            ref={imageRefs.current[idx]}
             className="image-container"
           >
             <img
@@ -59,8 +52,6 @@ const Content = (props) => {
       </div>
     ));
   };
-  
-  
 
   const handleLoadMore = () => {
     // Simulating the addition of more images

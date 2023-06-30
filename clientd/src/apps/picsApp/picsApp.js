@@ -16,7 +16,7 @@ class PicsApp extends React.Component {
       accessKey: process.env.REACT_APP_UNSPLASH_KEY
     });
     unsplashApi.search.getPhotos({
-      query: "car",
+      query: "red smile",
       page: 1,
       perPage: 50
     }).then(result => {
