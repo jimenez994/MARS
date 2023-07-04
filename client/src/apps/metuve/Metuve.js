@@ -6,7 +6,7 @@ import useVideos from './hooks/useVideos';
 
 const Metube = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [videos, search] = useVideos('compadre y comadre');
+  const [videos, search] = useVideos('Leonardo Comadre Compadre Audio Mejorado');
 
   useEffect(() => {
     setSelectedVideo(videos[0])
