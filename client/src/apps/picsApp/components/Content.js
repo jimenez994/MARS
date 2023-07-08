@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import React from 'react';
 import axios from 'axios';
+// import CardItem from "./CardItem";
 
 const Content = (props) => {
   const [images, setImages] = useState(props.data);
